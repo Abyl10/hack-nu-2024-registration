@@ -64,7 +64,7 @@ export default function RootLayout({
                 <span className="font-bold">Participants</span>
               </Link> */}
               <Link
-                href="https://open.nuacm.kz"
+                href="https://hack.nuacm.kz/"
                 className={buttonVariants({ variant: "destructive" })}
               >
                 <span className="font-bold">Home</span>

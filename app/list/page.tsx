@@ -5,25 +5,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-async function getData() {
-  const res = await fetch("https://api.open.nuacm.kz/api/list/accepted", {
-    next: { revalidate: 100 },
-    cache: "no-cache",
-  });
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+// async function getData() {
+//   const res = await fetch("https://api.open.nuacm.kz/api/list/accepted", {
+//     next: { revalidate: 100 },
+//     cache: "no-cache",
+//   });
+//   // The return value is *not* serialized
+//   // You can return Date, Map, Set, etc.
 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
+//   if (!res.ok) {
+//     // This will activate the closest `error.js` Error Boundary
+//     throw new Error("Failed to fetch data");
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 export default async function AcceptedTeamsPage() {
-  const data = await getData();
-
+  // const data = await getData();
+  const data = [] as const;
   console.log(data);
 
   return (
