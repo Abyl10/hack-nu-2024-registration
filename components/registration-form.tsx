@@ -135,7 +135,7 @@ export function getSchema() {
 export default function RegistrationForm() {
   const { toast } = useToast();
   const { formSchema, participantSchema } = getSchema();
-  const [teammatesCount, setTeammatesCount] = useState(0);
+  const [teammatesCount, setTeammatesCount] = useState(1);
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const emptyTeamMember: z.infer<typeof participantSchema> = {
