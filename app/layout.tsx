@@ -1,15 +1,29 @@
-import { buttonVariants } from "@/components/ui/button";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import Image from "next/image";
+
 import Link from "next/link";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import Icons from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Hack NU 2024 | Registration",
   description: "Create. Explore. Divide. Conquer",
 };
+
+const IBMPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: "600",
+});
+
+const IBMPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: "600",
+});
 
 export default function RootLayout({
   children,
@@ -63,11 +77,21 @@ export default function RootLayout({
               >
                 <span className="font-bold">Participants</span>
               </Link> */}
-              <Link
-                href="https://hack.nuacm.kz/"
-                className={buttonVariants({ variant: "destructive" })}
-              >
-                <span className="font-bold">Home</span>
+              <Link href="https://hack.nuacm.kz/">
+                <Button
+                  variant={"hacknu"}
+                  size={"xlg"}
+                  className={cn(
+                    "relative font-semibold",
+                    IBMPlexMono.className
+                  )}
+                >
+                  <Icons.barCode className="absolute top-1 left-1" />
+                  REGISTER
+                  <span className="uppercase pb-0 text-white text-opacity-30 text-[10px] absolute bottom-[1px] mix-blend-difference right-1 font-normal">
+                    0x800f081f
+                  </span>
+                </Button>
               </Link>
             </div>
           </header>
