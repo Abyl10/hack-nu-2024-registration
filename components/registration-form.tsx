@@ -32,7 +32,7 @@ import {
   TrashIcon,
   UserPlusIcon,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -43,7 +43,6 @@ const unis = [
   { label: "ENU", value: "enu" },
   { label: "KBTU", value: "kbtu" },
   { label: "SDU", value: "sdu" },
-  { label: "School", value: "school" },
   { label: "Other", value: "other" },
 ] as const;
 
@@ -54,7 +53,6 @@ const studyYears = [
   { label: "3rd year Bachelor", value: "third" },
   { label: "4th year Bachelor", value: "forth" },
   { label: "Graduated Bachelor", value: "grad" },
-  { label: "School student", value: "school" },
 ] as const;
 
 const MAX_FILE_SIZE = 5000000;
@@ -83,7 +81,7 @@ export function getSchema() {
       .email({ message: "Should be in email format. E.g: john@example.com" }),
     uni: z
       .string({
-        required_error: "Please select your University/School",
+        required_error: "Please select your University",
       })
       .min(1, { message: "Please select your university" }),
     studyYear: z
@@ -155,7 +153,7 @@ export default function RegistrationForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       teamName: "",
-      teammates: [emptyTeamMember],
+      teammates: [emptyTeamMember, emptyTeamMember],
     },
   });
 
@@ -256,6 +254,9 @@ export default function RegistrationForm() {
   const { fields, append, remove } = useFieldArray({
     name: "teammates",
     control: form.control,
+    rules: {
+      minLength: 2,
+    },
   });
 
   const handleFileChange = (
@@ -274,7 +275,6 @@ export default function RegistrationForm() {
         updatedFile as File,
         { shouldValidate: true }
       );
-      // console.log(form);
     }
   };
 
@@ -315,7 +315,7 @@ export default function RegistrationForm() {
               <Button
                 size="icon"
                 variant="destructive"
-                disabled={index === 0}
+                disabled={index === 0 || index == 1}
                 onClick={() => {
                   remove(index);
                   setTeammatesCount((prev) => prev - 1);
@@ -385,7 +385,7 @@ export default function RegistrationForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      University/School <RequiredSpan />
+                      University <RequiredSpan />
                     </FormLabel>
                     <Select
                       onValueChange={field.onChange}
@@ -393,7 +393,7 @@ export default function RegistrationForm() {
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select University/School" />
+                          <SelectValue placeholder="Select University" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -515,7 +515,7 @@ export default function RegistrationForm() {
                     <FormDescription>
                       You can attach enrollment verification with graduation
                       date, official/unofficial transcript or Spravka. Must have
-                      a date of September 2023 or later.
+                      a date of Feburary 2024 or later.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
