@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  assetPrefix: "https://hack-nu-2024-registration.vercel.app/",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
