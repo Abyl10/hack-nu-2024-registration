@@ -87,7 +87,7 @@ export default function RootLayout({
                   )}
                 >
                   <Icons.barCode className="absolute top-1 left-1" />
-                  REGISTER
+                  HOME
                   <span className="uppercase pb-0 text-white text-opacity-30 text-[10px] absolute bottom-[1px] mix-blend-difference right-1 font-normal">
                     0x800f081f
                   </span>
