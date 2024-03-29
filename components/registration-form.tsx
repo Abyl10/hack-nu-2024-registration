@@ -52,7 +52,6 @@ const studyYears = [
   { label: "2nd year Bachelor", value: "second" },
   { label: "3rd year Bachelor", value: "third" },
   { label: "4th year Bachelor", value: "forth" },
-  { label: "Graduated Bachelor", value: "grad" },
 ] as const;
 
 const MAX_FILE_SIZE = 5000000;
