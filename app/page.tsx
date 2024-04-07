@@ -6,7 +6,7 @@ import { LightbulbIcon } from "lucide-react";
 export default function Home() {
   return (
     <section className="w-full max-w-xl space-y-8">
-      <div>
+      {/* <div>
         <h1 className="text-xl font-bold mb-2">Registration Form</h1>
         <h1 className="text-sm text-muted-foreground mb-2">
           Please fill out everything below.
@@ -31,7 +31,13 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
-      <RegistrationForm />
+      <RegistrationForm /> */}
+      <div className="h-[300px] flex items-center justify-center">
+        <p className="text-xl font-bold mb-2 text-center">
+          Registration is closed. All successfully registered teams will receive
+          the decision letter by April 10th.
+        </p>
+      </div>
     </section>
   );
 }

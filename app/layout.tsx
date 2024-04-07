@@ -98,7 +98,7 @@ export default function RootLayout({
 
           <main className="flex justify-center px-4 lg:px-0">{children}</main>
 
-          <footer className="w-full container flex justify-center py-8 text-muted-foreground text-sm">
+          <footer className="w-full container flex justify-center py-8 text-muted-foreground text-sm absolute bottom-0">
             hacknu 2024 by ACM SC
           </footer>
         </ThemeProvider>
