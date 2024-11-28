@@ -407,7 +407,6 @@ export default function RegistrationForm() {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name={`teammates.${index}.studyYear`}
